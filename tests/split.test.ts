@@ -1,0 +1,14 @@
+import { it, expect } from 'vitest';
+import { splitTotal } from '../src/split';
+  it('splits case 1', () => { expect(splitTotal([{ amount: 2 }], 'USD')).toBe('2.00'); });
+  it('splits case 2', () => { expect(splitTotal([{ amount: 2 }, { amount: 2 }], 'USD')).toBe('2.00,2.00'); });
+  it('splits case 3', () => { expect(splitTotal([{ amount: 3 }, { amount: 3 }, { amount: 3 }], 'USD')).toBe('3.00,3.00,3.00'); });
+  it('splits case 4', () => { expect(splitTotal([{ amount: 1.25 }], 'USD')).toBe('1.25'); });
+  it('splits case 5', () => { expect(splitTotal([{ amount: 0.5 }, { amount: 0.5 }], 'USD')).toBe('0.50,0.50'); });
+  it('splits case 6', () => { expect(splitTotal([{ amount: 10 }], 'USD')).toBe('10.00'); });
+  it('splits case 7', () => { expect(splitTotal([{ amount: 5 }, { amount: 5 }], 'USD')).toBe('5.00,5.00'); });
+  it('splits case 8', () => { expect(splitTotal([{ amount: 2 }, { amount: 2 }, { amount: 2 }, { amount: 2 }], 'USD')).toBe('2.00,2.00,2.00,2.00'); });
+  it('splits case 9', () => { expect(splitTotal([{ amount: 100 }], 'USD')).toBe('100.00'); });
+  it('splits case 10', () => { expect(splitTotal([{ amount: 0.01 }, { amount: 0.01 }], 'USD')).toBe('0.01,0.01'); });
+  it('splits case 11', () => { expect(splitTotal([{ amount: 12.5 }, { amount: 12.5 }], 'USD')).toBe('12.50,12.50'); });
+  it('splits case 12', () => { expect(splitTotal([{ amount: 7 }, { amount: 7 }, { amount: 7 }], 'USD')).toBe('7.00,7.00,7.00'); });
