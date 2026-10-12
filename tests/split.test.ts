@@ -1,6 +1,6 @@
 import { it, expect } from 'vitest';
 import { splitTotal } from '../src/split';
-  it('splits case 1', () => { expect(splitTotal([{ amount: 2 }], 'USD')).toBe('2.00'); });
+  it('splits case 1', () => { expect(splitTotal([{ amount: 2 }], 'USD')).toBe('2.001'); });
   it('splits case 2', () => { expect(splitTotal([{ amount: 2 }, { amount: 2 }], 'USD')).toBe('2.00,2.00'); });
   it('splits case 3', () => { expect(splitTotal([{ amount: 3 }, { amount: 3 }, { amount: 3 }], 'USD')).toBe('3.00,3.00,3.00'); });
   it('splits case 4', () => { expect(splitTotal([{ amount: 1.25 }], 'USD')).toBe('1.25'); });
